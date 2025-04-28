@@ -158,7 +158,7 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
     pid_t pid = fork();
     if (pid == -1)
     {
-          return -1;
+          return false;
     }
     else if (pid == 0)
     {
@@ -172,17 +172,27 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
          close(fd);
 
          execv(command[0], command);
-         return -1;
+         /*return false;*/
     }
 
     if (waitpid(pid, &status, 0) == -1)
     {
-         return -1;
+         return false;
     }
-    else if (WIFEXITED(status))
+    if (WIFEXITED(status))
     {
-         return WEXITSTATUS(status);
+            printf("Child process exited with status %d\n", WEXITSTATUS(status));
+            return WEXITSTATUS(status) == 0;
+    } else if (WIFSIGNALED(status))
+    {
+            printf("Child process terminated by signal %d\n", WTERMSIG(status));
+            return false;
     }
+    else
+    {
+           return false;
+    }
+
 
     va_end(args);
 
