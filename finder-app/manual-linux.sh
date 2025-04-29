@@ -135,6 +135,7 @@ cd ${FINDER_APP_DIR}
 cp ./conf/username.txt ${OUTDIR}/rootfs/home/conf
 cp ./conf/assignment.txt ${OUTDIR}/rootfs/home/conf
 cp ./finder.sh ${OUTDIR}/rootfs/home
+cp ./writer.sh ${OUTDIR}/rootfs/home
 cp ./finder-test.sh ${OUTDIR}/rootfs/home
 cp ./autorun-qemu.sh ${OUTDIR}/rootfs/home
 
