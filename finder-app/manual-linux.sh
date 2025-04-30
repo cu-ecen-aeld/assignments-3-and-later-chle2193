@@ -125,6 +125,9 @@ cd ${FINDER_APP_DIR}
 echo "Finder app dir is: ${FINDER_APP_DIR}"
 make clean
 make CROSS_COMPILE=${CROSS_COMPILE}
+echo "Done creating writer app"
+cp writer ${OUTDIR}/rootfs/home/
+echo "Done copying writer app to rootfs"
 
 # TODO: Copy the finder related scripts and executables to the /home directory
 # on the target rootfs
@@ -135,7 +138,7 @@ cd ${FINDER_APP_DIR}
 cp ./conf/username.txt ${OUTDIR}/rootfs/home/conf
 cp ./conf/assignment.txt ${OUTDIR}/rootfs/home/conf
 cp ./finder.sh ${OUTDIR}/rootfs/home
-cp ./writer.sh ${OUTDIR}/rootfs/home
+#cp ./writer.sh ${OUTDIR}/rootfs/home
 cp ./finder-test.sh ${OUTDIR}/rootfs/home
 cp ./autorun-qemu.sh ${OUTDIR}/rootfs/home
 
