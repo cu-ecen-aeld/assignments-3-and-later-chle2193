@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 [[ $# -ne 2 ]] && echo "Pls provide two parameters" && exit 1
 filesdir=$1
