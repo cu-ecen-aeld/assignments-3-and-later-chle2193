@@ -20,8 +20,8 @@ struct thread_data{
      * if an error occurred.
      */
     pthread_mutex_t *mutex;
-    unsigned int wait_before_obtain_ms;
-    unsigned int wait_before_release_ms;
+    unsigned int wait_to_obtain_ms;
+    unsigned int wait_to_release_ms;
     bool thread_complete_success;
 };
 
